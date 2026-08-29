@@ -34,6 +34,9 @@ jobs:
       # ci: package-lock.json'a birebir sadık kurulum (install'dan farkı bu)
       - run: npm ci
 
+      # Testler kirilirsa yayin durur; bozuk surum siteye cikmaz.
+      - run: npm test
+
       - run: npm run build
         env:
           # vite.config.js bunu görünce dosya yollarını /Proje1-sahtekari-bul/ ile üretir

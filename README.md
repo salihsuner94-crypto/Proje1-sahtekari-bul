@@ -31,6 +31,7 @@ Diğer komutlar:
 ```bash
 npm run build    # dist/ klasörüne üretim derlemesi
 npm run preview  # derlenmiş sürümü yerelde çalıştır
+npm test         # oyun kurallarını doğrulayan testler
 ```
 
 ### Telefondan test etmek
@@ -135,6 +136,28 @@ Bozuk veri uygulamayı çökertmez: geçersiz kayıtlar elenir, sebebi tarayıc�
 
 Bu sınırlar `src/constants/gameConfig.js` dosyasında tek yerde duruyor.
 
+## Testler
+
+```bash
+npm test
+```
+
+Oyunun kurallarını doğrulayan 149 kontrol çalışır. Ekran/React yok, sadece saf mantık: hızlı (birkaç saniye) ve kararlı.
+
+| Dosya | Ne doğruluyor |
+|---|---|
+| `tests/reducerTest.mjs` | Kurulum ekranı, oyuncu/kategori/süre sınırları, durum geçişleri |
+| `tests/roundTest.mjs` | Kelime ve sahtekâr seçimi, dağılım dengesi, ipucu modu çözümü |
+| `tests/discussionTest.mjs` | Sayaç biçimi, tartışma turu geçişleri, bilgi sızıntısı kontrolü |
+| `tests/votingTest.mjs` | Oy sayımı, kazanan hesabı, beraberlik kuralı, puanlama, tur döngüsü |
+| `tests/edgeTest.mjs` | Uç durumlar (20 oyuncu, tek kategori, bozuk girdi) ve kelime verisinin bütünlüğü |
+
+Testler `main` dalına her gönderimde GitHub Actions içinde de çalışır; biri kırılırsa site yayınlanmaz.
+
+**Kelime eklerken özellikle işine yarar:** `edgeTest.mjs` her kelimenin ipucu olduğunu ve hiçbir ipucunun kendi kategorisindeki bir kelime olmadığını kontrol eder — yani sahtekâra gerçek cevabı sızdıran bir ipucu yazarsan test seni uyarır.
+
+`tests/register.mjs` ve `tests/extResolver.mjs` test dosyası değildir: Vite'ın izin verdiği uzantısız `import` satırlarını çıplak Node'un da anlaması için gereken küçük yardımcılardır.
+
 ## Proje yapısı
 
 ```
@@ -156,6 +179,8 @@ src/
 │  ├─ result/     oy dökümü, puan tablosu
 │  └─ screens/    her faz için bir ekran
 └─ styles/        theme.css (renk/boşluk değişkenleri) + global.css
+
+tests/           oyun kurallarını doğrulayan testler (npm test)
 ```
 
 Oyunun tüm durumu tek bir `useReducer` içinde; ekranlar sadece "şunu yap" der, kuralları `game/` klasörü bilir. Bir kuralı değiştirmek istediğinde bileşenlerin içinde arama yapman gerekmez.
