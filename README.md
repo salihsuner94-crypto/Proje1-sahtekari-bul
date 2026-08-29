@@ -50,6 +50,14 @@ Uygulama bir PWA'dır: telefonda ana ekrana eklenince kendi ikonuyla, tarayıcı
 
 İkonu değiştirmek istersen `public/` klasöründeki `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png` ve `favicon.svg` dosyalarını değiştir. Uygulama adı, renkleri ve ekran yönü `public/manifest.webmanifest` dosyasında.
 
+## Yayınlama (Vercel)
+
+Depo Vercel'e bağlıdır: `main` dalına yapılan her `git push` otomatik olarak yeni sürümü yayına alır.
+
+Ayarlar `vercel.json` dosyasında: derleme komutu, çıktı klasörü ve servis çalışanı için önbellek başlıkları. `sw.js` dosyasının önbelleğe alınmaması önemli — alınırsa kullanıcılar yayınladığın yeni sürümü günlerce görmez.
+
+HTTPS üzerinden yayınlandığı için Android'de "Uygulamayı yükle" seçeneği de orada çalışır.
+
 ## ⭐ Kategori ve kelime eklemek
 
 Tek dosyayı değiştirmen yeterli: **`src/data/categories.js`**
