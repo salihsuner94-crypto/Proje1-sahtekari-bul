@@ -1,4 +1,4 @@
-# 🕵️ Sahtekârı Bul
+# 🕵️ Sahtekarı Bul
 
 Tek cihazda, sırayla oynanan Spyfall tarzı kelime oyunu. 3–20 kişi, telefon elden ele.
 

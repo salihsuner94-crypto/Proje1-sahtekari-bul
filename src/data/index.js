@@ -9,7 +9,7 @@ const validation = validateCategories(CATEGORIES);
 
 if (validation.issues.length > 0) {
   console.warn(
-    '[Sahtekârı Bul] categories.js içinde sorunlar bulundu:\n' +
+    '[Sahtekarı Bul] categories.js içinde sorunlar bulundu:\n' +
       validation.issues.map((issue) => ` • ${issue}`).join('\n'),
   );
 }

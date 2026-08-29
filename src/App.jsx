@@ -19,7 +19,7 @@ export default function App() {
     <div className="app">
       <div className="app__inner">
         <header>
-          <h1 className="app__title">🕵️ Sahtekârı Bul</h1>
+          <h1 className="app__title">🕵️ Sahtekarı Bul</h1>
           <p className="app__subtitle">Tek cihazda, sırayla oynanan kelime oyunu</p>
         </header>
 
