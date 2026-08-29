@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover: telefonda çentik/köşe alanlarını da kullanabilelim
+         (kenar boşluklarını CSS'te env(safe-area-inset-*) ile veriyoruz). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#12141c" />
+    <meta name="description" content="Tek cihazda, sırayla oynanan sahtekâr bulma kelime oyunu." />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon-64.png" sizes="64x64" />
+    <!-- iOS manifest'teki ikonları kullanmaz; ana ekran ikonunu buradan okur. -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Manifest bağlantısını elle yazıyoruz: vite-plugin-pwa bunu sadece üretim
+         derlemesinde ekliyor, geliştirme sunucusunda telefondan test edemiyorduk. -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Ana ekrandan açılınca tarayıcı çubuğu olmadan başlasın.
+         mobile-web-app-capable güncel adı, apple- öneki eski iOS sürümleri için. -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Sahtekâr" />
+
+    <title>Sahtekârı Bul</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

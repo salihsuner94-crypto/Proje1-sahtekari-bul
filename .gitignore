@@ -1,0 +1,29 @@
+# Bağımlılıklar — "npm install" ile yeniden kurulur, depoya girmez (çok büyük)
+node_modules
+
+# Derleme çıktıları — "npm run build" ile yeniden üretilir
+dist
+dist-ssr
+# vite-plugin-pwa'nın geliştirme sırasında ürettiği servis çalışanı dosyaları
+dev-dist
+
+# Araç önbellekleri
+.vite
+
+# Ortam değişkenleri: parola/anahtar içerebilir, asla depoya girmemeli
+.env
+.env.*
+
+# İşletim sistemi ve editör dosyaları
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+
+# Claude Code'un bu makineye özel ayarları
+.claude/settings.local.json
+
+# Günlükler ve yerel dosyalar
+*.log
+npm-debug.log*
+*.local

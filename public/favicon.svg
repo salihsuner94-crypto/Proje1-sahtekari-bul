@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sahtekârı Bul">
+  <rect width="512" height="512" rx="96" fill="#6C5CE7" />
+  <g fill="none" stroke="#ffffff" stroke-width="44" stroke-linecap="round">
+    <circle cx="230" cy="225" r="130" />
+    <line x1="325" y1="320" x2="420" y2="415" />
+  </g>
+</svg>

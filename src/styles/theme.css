@@ -1,0 +1,61 @@
+/* Tüm renk/boşluk/yazı değerleri burada. Temayı değiştirmek istersen tek yer burası. */
+
+:root {
+  color-scheme: dark;
+
+  /* Zemin ve yüzeyler */
+  --color-bg: #12141c;
+  --color-bg-accent: #1a1d29;
+  --color-surface: #1e2130;
+  --color-surface-raised: #262a3b;
+  --color-border: #333849;
+  --color-border-strong: #454b63;
+
+  /* Yazı */
+  --color-text: #eef0f7;
+  --color-text-muted: #9aa1b9;
+  --color-text-faint: #6e758f;
+
+  /* Vurgular */
+  --color-primary: #6c5ce7;
+  --color-primary-hover: #7d6ef0;
+  --color-primary-text: #ffffff;
+  --color-danger: #e05561;
+  --color-danger-soft: #3a2027;
+  --color-success: #35c48b;
+  --color-warning: #e0a458;
+
+  /* Rol renkleri */
+  --color-impostor: #e05561;
+  --color-detective: #35c48b;
+
+  /* Boşluk ölçeği */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Köşe yuvarlaklığı */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 999px;
+
+  /* Yazı boyutları */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 20px;
+  --font-xl: 28px;
+  --font-2xl: 40px;
+  --font-3xl: 60px;
+
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --transition-fast: 120ms ease;
+
+  /* İçeriğin maksimum genişliği (telefonda tam, masaüstünde ortada dar kolon) */
+  --layout-max-width: 560px;
+}
