@@ -46,17 +46,25 @@ Terminalde yazan `Network:` adresini (örn. `http://192.168.1.111:5173/`) telefo
 Uygulama bir PWA'dır: telefonda ana ekrana eklenince kendi ikonuyla, tarayıcı çubuğu olmadan açılır ve internetsiz de çalışır.
 
 - **iPhone (Safari):** Paylaş → "Ana Ekrana Ekle". HTTP üzerinden de çalışır.
-- **Android (Chrome):** Menü → "Uygulamayı yükle". Chrome'un tam PWA kurulumu **HTTPS** ister; yerel ağdaki `http://` adresinde bu seçenek çıkmayabilir, bunun yerine basit bir kısayol eklenir. Tam kurulumu denemek için siteyi bir yere yayınlamak (ör. Netlify, Vercel, GitHub Pages) gerekir.
+- **Android (Chrome):** Menü → "Uygulamayı yükle". Chrome'un tam PWA kurulumu **HTTPS** ister; yerel ağdaki `http://` adresinde bu seçenek çıkmaz, bunun yerine basit bir kısayol eklenir. Tam kurulum için yayınlanmış adresi kullan (aşağıdaki Yayınlama bölümü).
 
 İkonu değiştirmek istersen `public/` klasöründeki `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png` ve `favicon.svg` dosyalarını değiştir. Uygulama adı, renkleri ve ekran yönü `public/manifest.webmanifest` dosyasında.
 
-## Yayınlama (Vercel)
+## Yayınlama
 
-Depo Vercel'e bağlıdır: `main` dalına yapılan her `git push` otomatik olarak yeni sürümü yayına alır.
+### GitHub Pages (otomatik)
 
-Ayarlar `vercel.json` dosyasında: derleme komutu, çıktı klasörü ve servis çalışanı için önbellek başlıkları. `sw.js` dosyasının önbelleğe alınmaması önemli — alınırsa kullanıcılar yayınladığın yeni sürümü günlerce görmez.
+`main` dalına her `git push` yapıldığında `.github/workflows/deploy.yml` çalışır, projeyi derler ve yayınlar:
 
-HTTPS üzerinden yayınlandığı için Android'de "Uygulamayı yükle" seçeneği de orada çalışır.
+**https://salihsuner94-crypto.github.io/Proje1-sahtekari-bul/**
+
+GitHub Pages projeyi kök dizinde değil bir alt yolda yayınladığı için dosya yollarının `/Proje1-sahtekari-bul/` ön ekiyle üretilmesi gerekir. Bunu `vite.config.js` içindeki `base` ayarı yapar ve yalnızca `GITHUB_PAGES=true` ortam değişkeni verildiğinde devreye girer — böylece aynı kod kök dizinde yayınlandığında da (Vercel, `npm run preview`) bozulmaz.
+
+Yayının durumunu deponun **Actions** sekmesinden izleyebilirsin.
+
+### Vercel (isteğe bağlı)
+
+`vercel.json` dosyası duruyor; depoyu Vercel'e bağlarsan orada da kök dizinde yayınlanır. İki yöntem birbirini engellemez.
 
 ## ⭐ Kategori ve kelime eklemek
 

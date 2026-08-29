@@ -2,7 +2,13 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// GitHub Pages projeyi kök dizinde değil, /Proje1-sahtekari-bul/ altında yayınlıyor.
+// Bu yüzden dosya yolları o ön ekle üretilmeli. Ortam değişkeniyle açıyoruz ki
+// aynı kod kök dizinde yayınlandığında (Vercel, yerel önizleme) bozulmasın.
+const base = process.env.GITHUB_PAGES === 'true' ? '/Proje1-sahtekari-bul/' : '/';
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     VitePWA({

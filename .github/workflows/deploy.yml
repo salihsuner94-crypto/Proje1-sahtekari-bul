@@ -1,0 +1,57 @@
+# main dalına her gönderimde oyunu GitHub Pages'te yayınlar.
+# Derleme çıktısı (dist) depoya commit edilmez; GitHub burada derleyip yayınlar.
+name: GitHub Pages yayını
+
+on:
+  push:
+    branches: [main]
+  # Sekmeden elle de çalıştırılabilsin (Actions -> Run workflow)
+  workflow_dispatch:
+
+# Pages'e yayınlamak için gereken izinler
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Aynı anda tek yayın çalışsın; arka arkaya push atılırsa sonuncusu geçerli olur
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Derle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # ci: package-lock.json'a birebir sadık kurulum (install'dan farkı bu)
+      - run: npm ci
+
+      - run: npm run build
+        env:
+          # vite.config.js bunu görünce dosya yollarını /Proje1-sahtekari-bul/ ile üretir
+          GITHUB_PAGES: 'true'
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Yayınla
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
